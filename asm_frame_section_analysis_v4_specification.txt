@@ -1,0 +1,64 @@
+ASM Technologies Ltd - Frame Section & Chassis Load Analysis V4
+===============================================================
+
+Application file:
+  asm_frame_section_analysis_v4.py
+
+Purpose:
+  Dedicated chassis frame calculator for frame section sizing and vehicle load
+  layout judgement. V4 is separate from V3 and does not modify the V3 file.
+
+Main inputs:
+  - Frame length, for example 12 m
+  - Frame thickness
+  - Width / flange
+  - Frame height
+  - Material
+  - FOS target
+  - FA load dropdown
+  - RA load dropdown
+  - Front axle position (FAP) dropdown
+  - Rear axle position (RAP) dropdown
+  - FFL front frame length / front overhang
+  - RFL rear frame length / rear overhang
+  - Cab load
+  - Engine type dropdown
+
+Main outputs:
+  - Frame section modulus with graph
+  - Frame deflection with graph
+  - Frame bending moment diagram
+  - Shear force drawing
+  - Calculated front/rear reactions
+  - Factor of safety
+  - OK / NOT OK judgement for entered inputs
+
+Rules currently checked:
+  - FAP must be before RAP
+  - FFL should approximately match front axle position
+  - RFL should approximately match frame length minus rear axle position
+  - Total overhang FFL + RFL cannot be more than 2 x wheelbase
+  - Front overhang should not exceed wheelbase
+  - Rear overhang should not exceed wheelbase
+  - FOS must meet target
+  - Frame deflection should be within L/300 guideline
+  - Calculated front reaction should be within 15% of selected FA load
+  - Calculated rear reaction should be within 15% of selected RA load
+
+Engineering model:
+  - C-channel frame section is approximated using web + two flanges.
+  - Section modulus Z = I / c.
+  - Stress = M / Z.
+  - Deflection is calculated by numerical integration of M/EI.
+  - SFD and BMD are generated using the selected FA/RAP support positions,
+    cab load, engine load, frame self weight, and equivalent payload.
+
+Exports:
+  - CSV result table
+  - PDF report
+  - Separate graph window
+
+Important note:
+  This is a first-pass frame study tool for project and design comparison.
+  Final approval still requires validated CAD/FEA modelling, weld/bolt/contact
+  details, local reinforcements, fatigue, and regulatory load cases.

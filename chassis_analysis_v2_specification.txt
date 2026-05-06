@@ -1,0 +1,112 @@
+Truck Chassis Structural Analysis V2 - Specification
+====================================================
+
+Application file:
+  chassis_analysis_v2.py
+
+Purpose:
+  First-pass structural analysis for truck chassis frame members. The app is
+  designed for project study, material comparison, load checking, and report
+  generation.
+
+Chassis parts included:
+  1. 4x2 Truck Main Chassis Rail
+     - Default length: 4.2 m
+     - Default flange/width: 0.075 m
+     - Default section height: 0.18 m
+     - Default loads: 9000 N transverse, 3500 N axial, 1200 N-m torque
+
+  2. Truck Chassis C-Section Rail
+     - Default length: 5.0 m
+     - Default flange/width: 0.08 m
+     - Default section height: 0.20 m
+     - Default loads: 12000 N transverse, 5000 N axial, 1800 N-m torque
+
+  3. Truck Chassis Box Rail
+     - Default length: 5.0 m
+     - Default flange/width: 0.10 m
+     - Default section height: 0.22 m
+     - Default loads: 15000 N transverse, 6000 N axial, 2500 N-m torque
+
+  4. Cross Member
+     - Default length: 1.2 m
+     - Default flange/width: 0.075 m
+     - Default section height: 0.15 m
+     - Default loads: 6000 N transverse, 1200 N axial, 700 N-m torque
+
+  5. Suspension Bracket Zone
+     - Default length: 0.45 m
+     - Default flange/width: 0.12 m
+     - Default section height: 0.18 m
+     - Default loads: 18000 N transverse, 4000 N axial, 2200 N-m torque
+
+  6. Body Mount Bracket Zone
+     - Default length: 0.35 m
+     - Default flange/width: 0.10 m
+     - Default section height: 0.14 m
+     - Default loads: 4500 N transverse, 1500 N axial, 600 N-m torque
+
+Editable inputs:
+  - Chassis part
+  - Length
+  - Flange/width
+  - Section height
+  - Material
+  - Comparison material
+  - Load type: axial, transverse, pressure, torque
+  - Load value
+  - Load zone: front, middle, rear, full span, bolt area, base
+  - Boundary condition: simply supported, cantilever, fixed-fixed
+  - Target factor of safety
+  - Optional aerodynamic road load values
+
+Materials included:
+  - IS 2062 E250 Mild Steel
+  - IS 2062 E350 Structural Steel
+  - ASTM A36 Steel
+  - AISI 1018 Low Carbon Steel
+  - HSS 550 Steel
+  - HSS 700 Steel
+  - Domex 700 MC
+  - Aluminum 6061-T6
+  - CFRP Carbon Fiber
+  - Titanium Ti-6Al-4V
+
+Graphs generated:
+  1. Stress distribution along chassis length
+  2. Stress-strain material comparison
+  3. Load vs deformation
+  4. Factor of safety by chassis zone
+
+Output/export:
+  - Non-editable PNG graphs
+  - Separate graph window for full-size viewing on 1920 x 1080 displays
+  - CSV result table
+  - PDF report with inputs, loads, formulas, result summary, and graphs
+
+User interface:
+  - Chassis Setup tab for part and material selection
+  - Load Case tab for chassis force/torque/pressure values
+  - Road/Air Load tab for optional aerodynamic road load
+  - Main right-side scrollbar for smaller screens
+
+Backend formulas:
+  - Normal stress: sigma = F/A
+  - Bending stress: sigma = M*c/I
+  - Shear stress approximation: tau = 1.5V/A
+  - Torsional shear approximation: tau = T*c/J
+  - Von Mises stress: sigma_vm = sqrt(sigma^2 + 3*tau^2)
+  - Strain: epsilon = sigma/E
+  - Simply supported deflection: delta = F*L^3/(48EI)
+  - Cantilever deflection: delta = F*L^3/(3EI)
+  - Fixed-fixed deflection: delta = F*L^3/(192EI)
+  - Factor of safety: FOS = yield strength / max Von Mises stress
+  - Dynamic pressure: q = 0.5*rho*V^2
+  - Drag force estimate: Fd = pressure*projected area
+  - Reynolds number estimate: Re = rho*V*L/mu
+
+Important engineering note:
+  This V2 app is a calculation and visualization tool for early design study.
+  It should not be used as final production validation. Final truck chassis
+  approval requires detailed CAD geometry, weld/bolt/contact modelling,
+  validated load cases, fatigue checks, and full FEA verification.

@@ -1,0 +1,37 @@
+ASM Technologies Ltd - Chassis CFD & Structural Analysis V3
+===========================================================
+
+Application file:
+  asm_chassis_cfd_analysis_v3.py
+
+Logo file:
+  ASM-Logo.png
+
+Purpose:
+  Branded professional desktop tool for chassis fitting and chassis structural
+  study. V3 keeps the V2 calculation backend and adds ASM Technologies Ltd UI
+  branding, improved panel styling, separated input tabs, and a dedicated graph
+  review window.
+
+Main modules:
+  - Chassis Setup: CAD upload, chassis part, dimensions, material, comparison
+  - Load Case: axial, transverse, pressure, and torque load table
+  - Road/Air Load: chassis CFD-style road/aerodynamic load approximation
+  - Results: stress, strain, deflection, FOS, mass, graphs, exports
+
+Branding:
+  - Company name: ASM Technologies Ltd
+  - Product title: Chassis CFD & Structural Analysis V3
+  - Header logo: ASM-Logo.png
+  - Report title: ASM Technologies Ltd - Chassis CFD & Structural Analysis Report V3
+
+Exports:
+  - asm_chassis_cfd_analysis_v3_graphs.png
+  - asm_chassis_cfd_analysis_v3_graph_window.png
+  - asm_chassis_cfd_analysis_v3_results.csv
+  - asm_chassis_cfd_analysis_v3_report.pdf
+
+Important note:
+  This is a first-pass engineering calculation and presentation tool. Use
+  validated CAD, meshing, contacts, welds, bolted joints, fatigue load cases,
+  and full FEA for final production chassis approval.
